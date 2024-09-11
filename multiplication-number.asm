@@ -12,8 +12,6 @@ main:
     
     mul $t2, $t0, $t1
     
-    mflo $t2
-    
     sw $t2, result
     
     li $v0, 1
