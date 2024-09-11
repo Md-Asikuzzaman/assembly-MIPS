@@ -1,20 +1,25 @@
 .data
-    num1:   .word 30   # First number
-    num2:   .word 15   # Second number
-    result: .word 0    # To store the result of subtraction
-
+    num1:   .word 12
+    num2:   .word 23
+    result: .word 0
 .text
-    main:
-        # Load the two numbers into registers
-        lw   $t0, num1  # Load the first number (minuend) into $t0
-        lw   $t1, num2  # Load the second number (subtrahend) into $t1
+main:
 
-        # Perform the subtraction
-        sub  $t2, $t0, $t1  # Subtract $t1 from $t0, result in $t2
+    lw $t0, num1
+    lw $t1, num2
+    
+     # Perform the subtraction
+    sub $t2, $t0, $t1
+    
+    # Store the result
+    sw $t2, result
+    
+    # Print the result
+    li $v0, 1
+    lw $a0, result
+    syscall
 
-        # Store the result
-        sw   $t2, result    # Store the result in memory
-
-        # Exit the program
-        li   $v0, 10        # Load the exit system call code
-        syscall             # Make the system call to exit
+    li $v0, 10
+    syscall
+    
+    
