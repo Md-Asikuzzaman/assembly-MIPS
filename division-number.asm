@@ -5,20 +5,20 @@
 .text
 main:
     # Load values
-    lw $t0, num1        # Load the dividend (200) into $t0
-    lw $t1, num2        # Load the divisor (100) into $t1
+    lw $t0, num1  
+    lw $t1, num2      
     
     # Perform division
-    div $t0, $t1        # Divide $t0 by $t1; quotient in $lo, remainder in $hi
+    div $t0, $t1  
     
     # Move the quotient
-    mflo $t2            # Move the quotient from $lo to $t2
+    mflo $t2        
     
     # Print the result
-    li $v0, 1           # Load system call code for print integer
-    move $a0, $t2       # Move the result from $t2 to $a0
-    syscall             # Make the system call to print the integer
+    li $v0, 1          
+    move $a0, $t2      
+    syscall             
     
     # Exit the program
-    li $v0, 10          # Load system call code for exit
-    syscall             # Make the system call to exit the program
+    li $v0, 10         
+    syscall            
